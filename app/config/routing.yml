@@ -2,7 +2,11 @@ sf_rest:
     resource: "@sfRestBundle/Controller/"
     type:     annotation
     prefix:   /
-
+    
+users:
+    type: rest
+    resource: sf/RestBundle/Controller/UsersController
+    
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
