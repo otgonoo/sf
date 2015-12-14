@@ -1,0 +1,8 @@
+sf_rest:
+    resource: "@sfRestBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
