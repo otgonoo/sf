@@ -5,8 +5,8 @@ sf_rest:
     
 users:
     type: rest
-    resource: sf/RestBundle/Controller/UsersController
+    resource: "@sfRestBundle/Controller/UsersController"
     
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+#app:
+#    resource: "@AppBundle/Controller/"
+#    type:     annotation
