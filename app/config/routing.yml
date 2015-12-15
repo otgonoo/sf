@@ -5,7 +5,7 @@ sf_rest:
     
 users:
     type: rest
-    resource: "@sfRestBundle/Controller/UsersController"
+    resource: sf\RestBundle\Controller\UsersController
     
 #app:
 #    resource: "@AppBundle/Controller/"

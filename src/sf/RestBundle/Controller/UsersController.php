@@ -14,23 +14,39 @@
 
 namespace sf\RestBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-
+use sf\RestBundle\Entity\User;
+#use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations\View;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
-class UsersController extends Controller
+class UsersController extends FOSRestController
 {
 
     /**
      * @return array
-     * @view()
+     * @View()
      */
     public function getUsersAction()
     {
         $users = $this->getDoctrine()->getRepository('sfRestBundle:User')
                 ->findAll();
-        return array('users' => $users);
+        $view = $this->view($users, 200);
+                #->setTemplate("sfRestBundle:Users:getUsers.html.twig")
+                #->setTemplateVar('users');
+
+        return $this->handleView($view);
+    }
+
+    /**
+     * @param User $user
+     * @return array
+     * @View()
+     * @ParamConverter("user", class="sfRestBundle:User")
+     */
+    public function getUserAction(User $user)
+    {
+        return array('user' => $user);
     }
 
 }
