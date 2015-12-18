@@ -1,15 +1,26 @@
 <?php
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Description of Client
+ *
+ * @author otgonoo
+ */
+
 namespace sf\RestBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
+use FOS\OAuthServerBundle\Entity\Client as BaseClient;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="user")
  */
-class User extends BaseUser
+class Client extends BaseClient
 {
 
     /**
