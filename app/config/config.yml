@@ -82,11 +82,11 @@ fos_user:
     firewall_name: main
     user_class: sf\RestBundle\Entity\User
 
-fos_oauth_server:
-    db_driver: orm
-    client_class:        sf\RestBundle\Entity\Client
-    access_token_class:  sf\RestBundle\Entity\AccessToken
-    refresh_token_class: sf\RestBundle\Entity\RefreshToken
-    auth_code_class:     sf\RestBundle\Entity\AuthCode
-    service:
-        user_provider: fos_user.user_manager
+#fos_oauth_server:
+#    db_driver: orm
+#    client_class:        sf\RestBundle\Entity\Client
+#    access_token_class:  sf\RestBundle\Entity\AccessToken
+#    refresh_token_class: sf\RestBundle\Entity\RefreshToken
+#    auth_code_class:     sf\RestBundle\Entity\AuthCode
+#    service:
+#        user_provider: fos_user.user_manager
