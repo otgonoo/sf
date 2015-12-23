@@ -19,6 +19,7 @@ use sf\RestBundle\Entity\User;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations\View;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class UsersController extends FOSRestController
 {
@@ -32,8 +33,8 @@ class UsersController extends FOSRestController
         $users = $this->getDoctrine()->getRepository('sfRestBundle:User')
                 ->findAll();
         $view = $this->view($users, 200);
-                #->setTemplate("sfRestBundle:Users:getUsers.html.twig")
-                #->setTemplateVar('users');
+        #->setTemplate("sfRestBundle:Users:getUsers.html.twig")
+        #->setTemplateVar('users');
 
         return $this->handleView($view);
     }
@@ -47,6 +48,16 @@ class UsersController extends FOSRestController
     public function getUserAction(User $user)
     {
         return array('user' => $user);
+    }
+
+    /**
+     * @return array
+     * @View()
+     */
+    public function pingAction()
+    {
+        $view = $this->view(array('test' => 'tester'), 200);
+        return $this->handleView($view);
     }
 
 }

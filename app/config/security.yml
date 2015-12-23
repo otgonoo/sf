@@ -14,7 +14,7 @@ security:
         api_provider:
             memory:
                 users:
-                    ryan:
+                    otgonoo:
                         password: 123
                         roles: 'ROLE_USER'
                     admin:
@@ -26,27 +26,47 @@ security:
 
     firewalls:
         login:
-            pattern: ^/login$
-            anonymous: ~
-        api:
-            pattern: /api/.*
-            provider: api_provider
-            http_basic: ~
-        login_firewall:
-            pattern:   ^/
-            provider: our_db_provider
+            #pattern: ^/login$
+            #anonymous: ~
+            pattern:  ^/api/login
+            stateless: true
+            anonymous: true
             form_login:
-                login_path: /login
-                check_path: /login_check
-            logout:
-                path:   /logout
-                target: /
+                check_path: /api/login_check
+                require_previous_session: false
+                username_parameter: username
+                password_parameter: password
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+            provider: api_provider
+        api:
+            pattern:   ^/api
+            stateless: true
+            lexik_jwt:
+                authorization_header:
+                    enabled: true
+                    prefix:  Bearer
+                query_parameter:
+                    enabled: true
+                    name:    bearer
+        
+        #login_firewall:
+        #    pattern:   ^/
+        #    provider: our_db_provider
+        #    form_login:
+        #        login_path: /login
+        #        check_path: /login_check
+        #    logout:
+        #        path:   /logout
+        #        target: /
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
             
     access_control:
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: /api/.*, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/, roles: ROLE_USER }
+        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        #- { path: /api/.*, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        #- { path: ^/admin, roles: ROLE_ADMIN }
+        #- { path: ^/, roles: ROLE_USER }
+        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }        
