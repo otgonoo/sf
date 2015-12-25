@@ -1,3 +1,7 @@
 https://www.youtube.com/watch?v=MQDkeuHluhM
 
 https://github.com/namshi/jose
+
+
+php app/console debug:router
+

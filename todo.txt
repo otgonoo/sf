@@ -1,0 +1,2 @@
+Not working:
+    serializer exclusion_policy

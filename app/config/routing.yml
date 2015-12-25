@@ -1,28 +1,14 @@
-sf_rest:
-    resource: "@sfRestBundle/Controller/"
-    type:     annotation
-    prefix:   /
+#sf_rest:
+#    resource: "@sfRestBundle/Controller/"
+#    type:     annotation
+#    prefix:   /
 
-users:
-    type: rest
-    resource: sf\RestBundle\Controller\UsersController
+rest_api:
+    resource: "@sfRestBundle/Resources/config/routing.yml"
+    prefix:   /api
     
-Default:
-    type: annotation
-    resource: sf\RestBundle\Controller\DefaultController
-
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-    
-# MISC
-login_check:
-    path: /api/login_check
-
-acme_api_ping:
-    pattern: /api/ping
-    defaults: { _controller: 'sfRestBundle:Users:ping' }
-    requirements:
-        _method: HEAD|GET
 
 # REST
 #acme_api_page:

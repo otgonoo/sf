@@ -1,0 +1,16 @@
+# MISC
+
+login_check:
+    path: /login_check
+
+rest_api_ping:
+    pattern: /ping
+    defaults: { _controller: 'sfRestBundle:Authentication:ping' }
+    requirements:
+        _method: HEAD|GET
+
+# REST
+
+acme_api_page:
+    type:           rest
+    resource:       sf\RestBundle\Controller\UsersController

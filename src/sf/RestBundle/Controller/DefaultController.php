@@ -17,10 +17,12 @@ class DefaultController extends Controller
     {
         //$client = $this->createAuthenticatedClient($request);
         //$client->request('GET', '/api/ping');
-        $request = Request::create('/api/login_check', 'POST', array('_username' => "admin", '_password' => "123"));
+        $r = Request::create('http://www.google.com', 'GET');
+        var_dump($r->getContent());
+        /* $request = Request::create('/api/login_check', 'POST', array('_username' => "admin", '_password' => "123"));
 
-        $data = json_decode($request->getContent(), true);
-        print_r($request->getContent());
+          $data = json_decode($request->getContent(), true);
+          print_r($request->getContent()); */
         die("tester");
         /* $request->setServerParameter('HTTP_Authorization', sprintf('Bearer %s', $data['token'])); */
 
@@ -32,6 +34,7 @@ class DefaultController extends Controller
      */
     public function pingAction()
     {
+        die('tester');
         return new JsonResponse(array('test' => 'tester'));
     }
 
