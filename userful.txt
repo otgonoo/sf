@@ -5,3 +5,4 @@ https://github.com/namshi/jose
 
 php app/console debug:router
 
+http://swagger.io/
