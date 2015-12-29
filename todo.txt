@@ -2,3 +2,12 @@ Not working:
     serializer exclusion_policy
 	
 ionic deer request uudiig standard session goor duudaj testleh
+
+slim for API
+REST: http://www.codediesel.com/php/create-a-quick-rest-api-using-slim-framework/
+Token: 
+	http://www.appelsiini.net/projects/slim-basic-auth
+	http://www.appelsiini.net/projects/slim-jwt-auth
+
+
+N api yavuulahdaa user ee herhen shiidej baina
